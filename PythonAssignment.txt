@@ -1,0 +1,814 @@
+1. Open a new Python interpreter(REPL) and use it to find the value of 2 + 3.
+
+2. Create a python script to print hello, world! four times.
+
+#!/usr/bin/python3
+  2 
+  3 i = 0
+  4 while ( i < 4 ):
+  5     print ('Hello, World!')
+  6     i = i + 1
+
+
+
+3. Write a function istrcmp to compare two strings, ignoring the case.
+
+#!/usr/bin/python3
+  2 
+  3 
+  4 
+  5 def istrcmp(x,y):
+  6  if x.lower() == y.lower():
+  7   return True
+  8  else:
+  9   return False
+ 10 
+ 11 print (istrcmp('python','Python'))
+ 12 print (istrcmp ('LaTex','latex'))
+ 13 print (istrcmp ('a','b'))
+
+
+4. What will be output of the following program?
+print (2 < 3 and 3 > 1)
+print (2 < 3 or 3 > 1)
+print (2 < 3 or not 3 > 1)
+print (2 < 3 and not 3 > 1)
+
+
+5. What will be output of the following program?
+x = 4
+y = 5
+p = x < y or x < z
+print (p)
+
+True
+
+
+6. What will be output of the following program?
+True, False = False, True
+print (True, False)
+print (2 < 3
+)
+
+SyntaxError: can't assign to keyword
+
+
+7. What happens when the following code is executed? Will it give any error? Explain the reasons.
+x = 2
+if x == 2:
+	print x
+else:
+	print y
+
+:= prints 2
+
+
+
+8. What happens the following code is executed? Will it give any error? Explain the reasons.
+x = 2
+if x == 2:
+	print x
+else:
+	x +
+
+Invalid syntax
+It should be x=x+1
+
+
+
+9. Write a program add.py that takes 2 numbers as command line arguments and prints its sum.as follows:-
+$ python add.py 3 5
+8
+$ python add.py 2 9
+11
+
+#!/usr/bin/python3
+  2 
+  3 
+  4 import sys
+  5 
+  6 a=sys.argv[1]
+  7 b=sys.argv[2]
+  8 ans = int(a) + int(b)
+  9 print (ans)
+
+
+
+10. Write a function, isharshad that determines whether a number is a Harshad
+number (for number base 10).
+A Harshad number “is an integer that is divisible by the sum of its digits”
+-(Wikipedia)
+Example: 81 ? 8 + 1 = 9 ? 81/9 = 9 ? Harshad!
+>>> isharshad(81)
+True
+Hint: convert the number to a string
+
+#!/usr/bin/python3
+
+
+def checkHarshad( n ) :
+        sum = 0
+        temp = n
+        while temp > 0 :
+                sum = sum + temp % 10
+                temp = temp / 10
+        # Return true if sum of
+        # digits is multiple of n
+        return n % sum == 0
+
+n = input("enter number: ")
+if(checkHarshad( int(n) ) == 0) : print("Yes")
+else : print ("No")
+
+
+
+
+
+11. Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5,
+between 2000 and 3200 (both included).
+The numbers obtained should be printed in a comma-separated sequence on a single line.
+Hints: 
+Consider use range(#begin, #end) method
+
+#!/usr/bin/python3
+
+
+for i in range(2000, 3200) :
+ if ( i % 7 == 0 and i % 5 !=0 ) :
+    print (i, end=",")
+
+
+
+
+12. Write a program which can compute the factorial of a given numbers.
+The results should be printed in a comma-separated sequence on a single line.
+Suppose the following input is supplied to the program:
+8
+Then, the output should be:
+40320
+
+#!/usr/bin/python3
+
+import math
+
+num = int(input("Enter a number: "))
+
+if num < 0:
+   print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+   print("The factorial of 0 is 1")
+else:
+   fact = math.factorial(num)
+print ( fact )
+
+
+
+
+13. Write a program which accepts a sequence of comma-separated numbers from console and generate a list and a tuple which contains every number.
+Suppose the following input is supplied to the program:
+34,67,55,33,12,98
+Then, the output should be:
+['34', '67', '55', '33', '12', '98']
+('34', '67', '55', '33', '12', '98')
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+tuple() method can convert list to tuple
+
+#!/usr/bin/python3
+
+values = input("Input some comma seprated numbers : ")
+list = values.split(",")
+tuple = tuple(list)
+print('List : ',list)
+print('Tuple : ',tuple)
+
+
+
+14. Define a class which has at least two methods:
+getString: to get a string from console input
+printString: to print the string in upper case.
+Also please include simple test function to test the class methods.
+
+Hints:
+Use __init__ method to construct some parameters
+
+#!/usr/bin/python3
+
+class IOString():
+    def __init__(self):
+        self.str1 = ""
+
+    def get_String(self):
+        self.str1 = input()
+
+    def print_String(self):
+        print(self.str1.upper())
+
+str1 = IOString()
+str1.get_String()
+str1.print_String()
+
+
+
+
+
+15. Write a program that calculates and prints the value according to the given formula:
+Q = Square root of [(2 * C * D)/H]
+Following are the fixed values of C and H:
+C is 50. H is 30.
+D is the variable whose values should be input to your program in a comma-separated sequence.
+Example
+Let us assume the following comma separated input sequence is given to the program:
+100,150,180
+The output of the program should be:
+18,22,24
+
+Hints:
+If the output received is in decimal form, it should be rounded off to its nearest value (for example, if the output received is 26.0, it should be printed as 26)
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+#!/usr/bin/python3
+
+
+import math
+c=50
+h=30
+values = input("Input some comma seprated numbers : ")
+value = []
+items=[x for x in values.split(',')]
+for d in items:
+    value.append(str(int(round(math.sqrt(2*c*float(d)/h)))))
+
+print (','.join(value))
+
+
+
+
+
+16. Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence after sorting them alphabetically.
+Suppose the following input is supplied to the program:
+without,hello,bag,world
+Then, the output should be:
+bag,hello,without,world
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+#!/usr/bin/python3
+
+values = input("Enter words: ")
+
+items=[x for x in values.split(',')]
+items.sort()
+print (','.join(items))
+
+
+
+
+
+17. Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized.
+Suppose the following input is supplied to the program:
+Hello world
+Practice makes perfect
+Then, the output should be:
+HELLO WORLD
+PRACTICE MAKES PERFECT
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+#!/usr/bin/python3
+
+num = int(input("Enter number of lines: "))
+line = []
+
+for i in range(num) :
+  s = input("Enter lines: ")
+  line.append(s)
+
+lines = []
+
+
+for i in line :
+    lines.append(i.upper())
+
+
+for sentence in lines:
+    print (sentence)
+
+
+
+
+
+18. Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.
+Suppose the following input is supplied to the program:
+hello world and practice makes perfect and hello world again
+Then, the output should be:
+again and hello makes perfect practice world
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+We use set container to remove duplicated data automatically and then use sorted() to sort the data.
+
+
+#!/usr/bin/python3
+
+values = input("Enter whitespace separated words: ")
+
+words = [word for word in values.split(" ")]
+
+print (" ".join(sorted(list(set(words)))))
+
+
+
+
+19. Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
+Example:
+0100,0011,1010,1001
+Then the output should be:
+1010
+Notes: Assume the data is input by console.
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+
+#!/usr/bin/python3
+
+num = input("Enter binary numbers: ")
+value = []
+items=[x for x in num.split(',')]
+for p in items:
+    intp = int(p)
+    if not intp%5:
+        value.append(p)
+
+print (','.join(value))
+
+
+
+
+20. Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.
+The numbers obtained should be printed in a comma-separated sequence on a single line.
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+
+#!/usr/bin/python3
+
+values = []
+for i in range(1000, 3001):
+    s = str(i)
+    if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
+        values.append(s)
+print (",".join(values))
+
+
+
+21. Write a program that accepts a sentence and calculate the number of letters and digits.
+Suppose the following input is supplied to the program:
+hello world! 123
+Then, the output should be:
+LETTERS 10
+DIGITS 3
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+
+#!/usr/bin/python3
+
+s = input("Enter input: ")
+d={"DIGITS":0, "LETTERS":0}
+for c in s:
+    if c.isdigit():
+        d["DIGITS"]+=1
+    elif c.isalpha():
+        d["LETTERS"]+=1
+    else:
+        pass
+print ("LETTERS", d["LETTERS"])
+print ("DIGITS", d["DIGITS"])
+
+
+
+22. Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters.
+Suppose the following input is supplied to the program:
+Hello world!
+Then, the output should be:
+UPPER CASE 1
+LOWER CASE 9
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+
+#!/usr/bin/python3
+
+s = input("Enter input: ")
+d={"UPPER CASE":0, "LOWER CASE":0}
+for c in s:
+    if c.isupper():
+        d["UPPER CASE"]+=1
+    elif c.islower():
+        d["LOWER CASE"]+=1
+    else:
+        pass
+print "UPPER CASE", d["UPPER CASE"]
+print "LOWER CASE", d["LOWER CASE"]
+
+
+
+23. Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers.
+Suppose the following input is supplied to the program:
+1,2,3,4,5,6,7,8,9
+Then, the output should be:
+1,3,5,7,9
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+#!/usr/bin/python3
+import math
+
+values = input("Enter numbers: ")
+numbers = [x for x in values.split(",") if int(x)%2!=0]
+
+print( ",".join(numbers))
+
+
+
+
+
+24. A website requires the users to input username and password to register. Write a program to check the validity of password input by users.
+Following are the criteria for checking the password:
+1. At least 1 letter between [a-z]
+2. At least 1 number between [0-9]
+1. At least 1 letter between [A-Z]
+3. At least 1 character from [$#@]
+4. Minimum length of transaction password: 6
+5. Maximum length of transaction password: 12
+Your program should accept a sequence of comma separated passwords and will check them according to the above criteria. Passwords that match the criteria are to be printed, each separated by a comma.
+Example
+If the following passwords are given as input to the program:
+ABd1234@1,a F1#,2w3E*,2We3345
+Then, the output of the program should be:
+ABd1234@1
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+#!/usr/bin/python3
+
+
+import re
+
+data = input("Enter password: ")
+value = []
+items=[x for x in data.split(',')]
+for p in items:
+    if len(p)<6 or len(p)>12:
+        continue
+    else:
+        pass
+    if not re.search("[a-z]",p):
+        continue
+    elif not re.search("[0-9]",p):
+        continue
+    elif not re.search("[A-Z]",p):
+        continue
+    elif not re.search("[$#@]",p):
+        continue
+    elif re.search("\s",p):
+        continue
+    else:
+        pass
+    value.append(p)
+print (",".join(value))
+
+
+
+25. You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string, age and height are numbers. The tuples are input by console. The sort criteria is:
+1: Sort based on name;
+2: Then sort based on age;
+3: Then sort by score.
+The priority is that name > age > score.
+If the following tuples are given as input to the program:
+Tom,19,80
+John,20,90
+Jony,17,91
+Jony,17,93
+Json,21,85
+Then, the output of the program should be:
+[('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+We use itemgetter to enable multiple sort keys.
+
+
+#!/usr/bin/python3
+import operator
+
+s = input("Enter name age and height: ")
+l = []
+l.append(tuple(s.split(",")))
+
+print (sorted(l, key=operator.itemgetter(0,1,2)))
+
+
+
+
+
+26. Define a function which can compute the sum of two numbers.
+
+Hints:
+Define a function with two numbers as arguments. You can compute the sum in the function and return the value.
+
+#!/usr/bin/python3
+
+def SumFunction(number1, number2):
+        return number1+number2
+
+print (SumFunction(1,2))
+
+
+
+
+27. Define a function that can convert a integer into a string and print it in console.
+
+Hints:
+
+Use str() to convert a number to string.
+
+#!/usr/bin/python3
+
+def printValue(n):
+	print (str(n))
+
+printValue(3)
+
+
+28. Define a function that can receive two integral numbers in string form and compute their sum and then print it in console.
+
+Hints:
+
+Use int() to convert a string to integer.
+
+#!/usr/bin/python3
+
+def printValue(s1,s2):
+	print (int(s1)+int(s2))
+
+printValue("3","4")
+
+
+
+
+29. Define a function that can accept two strings as input and concatenate them and then print it in console.
+
+Hints:
+
+Use + to concatenate the strings
+
+#!/usr/bin/python3
+
+def printValue(s1,s2):
+	print (s1+s2)
+
+printValue("3","4") 
+
+
+
+
+30. Define a function that can accept two strings as input and print the string with maximum length in console. If two strings have the same length, then the function should print al l strings line by line.
+
+Hints:
+
+Use len() function to get the length of a string
+
+#!/usr/bin/python3
+
+def printValue(s1,s2):
+	len1 = len(s1)
+	len2 = len(s2)
+	if len1>len2:
+		print (s1)
+	elif len2>len1:
+		print (s2)
+	else:
+		print (s1)
+		print (s2)
+		
+
+printValue("one","three")
+
+
+
+
+31. Define a function that can accept an integer number as input and print the "It is an even number" if the number is even, otherwise print "It is an odd number".
+
+Hints:
+
+Use % operator to check if a number is even or odd.
+
+#!/usr/bin/python3
+
+def checkValue(n):
+	if n%2 == 0:
+		print ("It is an even number")
+	else:
+		print ("It is an odd number")
+		
+
+checkValue(7)
+
+
+
+32.Define a function which can print a dictionary where the keys are numbers between 1 and 3 (both included) and the values are square of keys.
+
+Hints:
+
+Use dict[key]=value pattern to put entry into a dictionary.
+Use ** operator to get power of a number.
+
+#!/usr/bin/python3
+
+def printDict():
+	d=dict()
+	d[1]=1
+	d[2]=2**2
+	d[3]=3**2
+	print (d)
+		
+
+printDict()
+
+
+33. Define a function which can print a dictionary where the keys are numbers between 1 and 20 (both included) and the values are square of keys.
+
+Hints:
+
+Use dict[key]=value pattern to put entry into a dictionary.
+Use ** operator to get power of a number.
+Use range() for loops.
+
+#!/usr/bin/python3
+
+def printDict():
+	d=dict()
+	for i in range(1,21):
+		d[i]=i**2
+	print (d)
+		
+
+printDict()
+
+
+
+
+34. Write a program which accepts a string as input to print "Yes" if the string is "yes" or "YES" or "Yes", otherwise print "No". 
+
+Hints:
+
+Use if statement to judge condition.
+
+#!/usr/bin/python3
+
+s = input("Enter input: " )
+
+if s=="yes" or s=="YES" or s=="Yes":
+    print ("Yes")
+else:
+    print ("No")
+
+
+
+
+
+
+
+35. Define a class named Circle which can be constructed by a radius. The Circle class has a method which can compute the area. 
+
+Hints:
+
+Use def methodName(self) to define a method.
+
+#!/usr/bin/python3
+
+class Circle(object):
+    def __init__(self, r):
+        self.radius = r
+
+    def area(self):
+        return self.radius**2*3.14
+
+aCircle = Circle(2)
+print ( aCircle.area())
+
+
+
+36. Define a class named Rectangle which can be constructed by a length and width. The Rectangle class has a method which can compute the area. 
+
+Hints:
+
+Use def methodName(self) to define a method.
+
+#!/usr/bin/python3
+
+class Rectangle(object):
+    def __init__(self, l, w):
+        self.length = l
+        self.width  = w
+
+    def area(self):
+        return self.length*self.width
+
+aRectangle = Rectangle(2,10)
+print (aRectangle.area())
+
+
+
+
+37. Define a class named Shape and its subclass Square. The Square class has an init function which takes a length as argument. Both classes have a area function which can print the area of the shape where Shape's area is 0 by default.
+
+Hints:
+
+To override a method in super class, we can define a method with the same name in the super class.
+
+
+
+
+
+38. Define a class named Shape and its subclass Square. The Square class has an init function which takes a length as argument. Both classes have a area function which can print the area of the shape where Shape's area is 0 by default.
+
+Hints:
+
+To override a method in super class, we can define a method with the same name in the super class.
+
+#!/usr/bin/python3
+
+class Shape(object):
+    def __init__(self):
+        pass
+
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def __init__(self, l):
+        Shape.__init__(self)
+        self.length = l
+
+    def area(self):
+        return self.length*self.length
+
+aSquare= Square(3)
+print (aSquare.area())
+
+
+
+
+
+39. The Fibonacci Sequence is computed based on the following formula:
+
+
+f(n)=0 if n=0
+f(n)=1 if n=1
+f(n)=f(n-1)+f(n-2) if n>1
+
+Please write a program to compute the value of f(n) with a given n input by console.
+
+Example:
+If the following n is given as input to the program:
+
+7
+
+Then, the output of the program should be:
+
+13
+
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Hints:
+We can define recursive function in Python.
+
+#!/usr/bin/python3
+
+def f(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return f(n-1)+f(n-2)
+
+n=int(input("Enter the input: ")
+print (f(n))
+
+
+
+
+
+
+
+
